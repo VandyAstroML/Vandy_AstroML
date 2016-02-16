@@ -1,1 +1,2 @@
-Hey Hey. I'm great!
+Machine learning project folder of Adam Szewciw
+
