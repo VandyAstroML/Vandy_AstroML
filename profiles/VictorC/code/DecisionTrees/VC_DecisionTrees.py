@@ -12,6 +12,7 @@ from __future__ import division, print_function, absolute_import
 
 # Importing modules
 import numpy as num
+import random
 from sklearn import datasets
 
 def main():
@@ -22,8 +23,23 @@ def main():
 	n_samples  = digits_dat.shape[0]
 	n_features = digits_dat.shape[1]
 	# Digits - target names
-	digits_tnames = digits['target_names']
+	digits_tnames = digits['target_names'].astype(int)
 	# Digits - target values
 	digits_target = digits['target']
+
+	## Training and control samples
+	# Selects 80 percent of sample as training sample 
+	# and the other 20 percent as the control sample.
+	# Want to select 80 percent of all types of targets
+	train_frac = 0.8
+	train_arr_idx  = []
+	for target in digits_tnames:
+		tnames_idx    = num.where(digits_target==target)[0]
+		tnames_size   = int(tnames_idx.size*train_frac)
+		tnames_sample = random.sample(tnames_idx, tnames_size)
+		train_arr_idx.extend(tnames_sample)
+	train_arr_idx = num.array(train_arr_idx)
+	cont_arr_idx  = set(range(len(digits_target))).difference(train_arr_idx)
+	cont_arr_idx  = num.array(list(cont_arr_idx))
 
 
