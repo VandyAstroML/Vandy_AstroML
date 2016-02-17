@@ -32,14 +32,24 @@ def main():
 	# and the other 20 percent as the control sample.
 	# Want to select 80 percent of all types of targets
 	train_frac = 0.8
-	train_arr_idx  = []
+	# training set - indices
+	train_idx  = []
 	for target in digits_tnames:
 		tnames_idx    = num.where(digits_target==target)[0]
 		tnames_size   = int(tnames_idx.size*train_frac)
 		tnames_sample = random.sample(tnames_idx, tnames_size)
-		train_arr_idx.extend(tnames_sample)
-	train_arr_idx = num.array(train_arr_idx)
-	cont_arr_idx  = set(range(len(digits_target))).difference(train_arr_idx)
-	cont_arr_idx  = num.array(list(cont_arr_idx))
+		train_idx.extend(tnames_sample)
+	train_idx = num.array(train_idx)
+	# Control set - indices
+	cont_idx  = set(range(len(digits_target))).difference(train_idx)
+	cont_idx  = num.array(list(cont_idx))
+	# In Dictionaries
+	train_dict = {}
+	train_dict['data'  ] = digits_dat   [train_idx]
+	train_dict['target'] = digits_target[train_idx]
+
+	cont_dict = {}
+	cont_dict['data'  ] = digits_dat   [cont_idx]
+	cont_dict['target'] = digits_target[cont_idx]
 
 
