@@ -43,11 +43,11 @@ def main():
 	# Control set - indices
 	cont_idx  = set(range(len(digits_target))).difference(train_idx)
 	cont_idx  = num.array(list(cont_idx))
-	# In Dictionaries
+	# Training set - dictionary
 	train_dict = {}
 	train_dict['data'  ] = digits_dat   [train_idx]
 	train_dict['target'] = digits_target[train_idx]
-
+	# Control set - dictionary
 	cont_dict = {}
 	cont_dict['data'  ] = digits_dat   [cont_idx]
 	cont_dict['target'] = digits_target[cont_idx]
