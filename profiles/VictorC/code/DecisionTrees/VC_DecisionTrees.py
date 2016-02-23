@@ -15,6 +15,30 @@ import numpy as num
 import random
 from sklearn import datasets
 
+def splitting_branches(data, ncol, val):
+	"""
+	Separatates `ncol` from data into two branches, depending on the conditions 
+	based on `val`
+
+	Parameters
+	----------
+	data: array_like
+		N-dimensional array with the data
+
+	ncol: int
+		column number used to categorized the two output sets (arrays).
+
+	val: string, int, or float
+		value used to categorize `data`
+
+	Returns
+	-------
+	(arr1,arr2): array_like
+		array containing both sets, i.e. arr1 and arr2, based on the criteria of 
+		`val`.
+	"""
+
+
 def main():
 	## Loading dataset
 	digits = datasets.load_digits()
@@ -47,9 +71,14 @@ def main():
 	train_dict = {}
 	train_dict['data'  ] = digits_dat   [train_idx]
 	train_dict['target'] = digits_target[train_idx]
+	train_data_target    = num.column_stack((train_dict['data'],
+		train_dict['target']))
+	# Combining data and target
 	# Control set - dictionary
 	cont_dict = {}
 	cont_dict['data'  ] = digits_dat   [cont_idx]
 	cont_dict['target'] = digits_target[cont_idx]
+	cont_data_target    = num.column_stack((cont_dict['data'],
+		cont_dict['target']))
 
 
