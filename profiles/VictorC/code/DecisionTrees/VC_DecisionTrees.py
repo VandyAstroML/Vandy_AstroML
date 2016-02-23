@@ -98,6 +98,27 @@ def entropy_calculation(data):
 
 	return ent_val
 
+def Tree_training(data, estimator=entropy_calculation):
+	"""
+	This function iterates over all possible values for each of the columns 
+	of `data` and constructs the whole Decision Tree structure
+
+	Parameters
+	----------
+	data: array_like
+		N-dimensional array, with `targets` being the last column.
+
+	estimator: function
+		Estimator that determines the cost function of the data, i.e. how 
+		(un)pure `data` is
+
+	Returns
+	-------
+	Best_vals: class
+		This class contains information on the best values obtained through the 
+		Decision Tree constructed.
+	"""
+
 
 def main():
 	## Loading dataset
