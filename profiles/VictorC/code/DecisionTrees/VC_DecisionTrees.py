@@ -17,11 +17,11 @@ from sklearn import datasets
 from collections import Counter
 
 class Best_Choices():
-        def __init_(self, results=None, true_tree=None, false_tree=None,col=-1 ):
-            self.results    = results # Dictionary of results
-            self.true_tree  = None    # Subtree for the `true` tree
-            self.false_tree = None    # SubTree for the `false` tree
-            self.col        = -1      # Chosen column number
+    def __init_(self, results=None, true_tree=None, false_tree=None,col=-1 ):
+        self.results    = results # Dictionary of results
+        self.true_tree  = None    # Subtree for the `true` tree
+        self.false_tree = None    # SubTree for the `false` tree
+        self.col        = -1      # Chosen column number
 
 def splitting_branches(data, ncol, val):
     """
