@@ -33,10 +33,21 @@ def splitting_branches(data, ncol, val):
 
 	Returns
 	-------
-	(arr1,arr2): array_like
+	set_arrs: array_like
 		array containing both sets, i.e. arr1 and arr2, based on the criteria of 
 		`val`.
 	"""
+	# Checking if value is an integer, a float, or something else
+	if isinstance(val, int) or 
+		val_type = lambda data: data[ncol] >= val # for numbers
+	else:
+		val_type = lambda data: data[ncol] == val # for strings or other
+	# Saving into arrays (and making sure they are lists, and not arrays)
+	set_corr = [row for row in data if val_type(row)]
+	set_fail = [row for row in data if not val_type(row)]
+	set_arrs = (set_corr, set_fail)
+
+	return set_arrs
 
 
 def main():
