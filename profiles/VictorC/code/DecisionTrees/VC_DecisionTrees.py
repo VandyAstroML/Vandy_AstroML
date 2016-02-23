@@ -14,6 +14,7 @@ from __future__ import division, print_function, absolute_import
 import numpy as num
 import random
 from sklearn import datasets
+from collections import Counter
 
 def splitting_branches(data, ncol, val):
 	"""
@@ -48,6 +49,29 @@ def splitting_branches(data, ncol, val):
 	set_arrs = (set_corr, set_fail)
 
 	return set_arrs
+
+def counter_of_targets(data):
+	"""
+	Calculates the total number of occurences for each of the possible values of 
+	the targets for each (sub)array.
+
+	Parameters
+	----------
+	data: array_like
+		N-dimensional array or 1-d array
+
+	Returns
+	-------
+	Count_dict: dictionary
+		Dictionary with possible values and their counts
+	"""
+	## Assuming it's a list
+	Count_obj = Counter(num.array(data).T[-1])
+	Count_dict = {}
+	for key in Count_obj.keys():
+		Count_dict[key] = Count_obj[key]
+
+	return Count_dict
 
 
 def main():
