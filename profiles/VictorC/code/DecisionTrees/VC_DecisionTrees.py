@@ -73,6 +73,31 @@ def counter_of_targets(data):
 
 	return Count_dict
 
+def entropy_calculation(data):
+	"""
+	Calculated the `entropy` of the dataset. This is a measure of how unpure 
+	the mix of `target` values is. Ideally, entropy==0.
+
+	Parameters
+	----------
+	data_dict: dictionary
+		dictionary containing counts for possible `target` values
+
+	Returns
+	-------
+	ent_val: float
+		value for the estimated entropy of the given `data`
+	"""
+	counts  = counter_of_targets(data)
+	ent_val = 0.
+	# Looping over all `target` values in `counts`
+	for key in counts.keys():
+		p_val = counts[key]/float(len(data))
+		# Entropy formula
+		ent_val -= p_val*num.log2(p_val)
+
+	return ent_val
+
 
 def main():
 	## Loading dataset
