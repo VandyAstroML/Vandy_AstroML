@@ -126,6 +126,23 @@ def Tree_training(data, estimator=entropy_calculation):
         Decision Tree constructed.
     """
 
+def new_data_classification(data, tree_obj):
+    """
+    Classifies (predicts) `data` according to `tree_obj`
+
+    Parameters
+    ----------
+    data: array_like
+        N-dimensional array containing values to be classified
+
+    tree_obj: DecisionTree object after it was trained
+
+    Returns
+    -------
+    obj_class: dictionary
+        Prediciton value for `data` using `tree_obj`
+    """
+
 
 def main():
     ## Loading dataset
