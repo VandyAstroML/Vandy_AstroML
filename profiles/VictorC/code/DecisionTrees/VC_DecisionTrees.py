@@ -125,6 +125,7 @@ def Tree_training(data, estimator=entropy_calculation):
         This class contains information on the best values obtained through the 
         Decision Tree constructed.
     """
+    
 
 def new_data_classification(data, tree_obj):
     """
