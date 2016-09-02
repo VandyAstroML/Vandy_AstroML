@@ -1,5 +1,5 @@
 # Vandy_AstroML
-[![Binder](http://mybinder.org/badge.svg)](http://mybinder.org/repo/VandyAstroML/Vandy_AstroML)
+[![Binder](http://mybinder.org/badge.svg)](http://mybinder.org:/repo/vandyastroml/vandy_astroml)
 
 Vanderbilt - Astronomy ML Group
 
